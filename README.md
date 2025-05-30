@@ -1,4 +1,4 @@
-# Wikonia DEV Setup
+# Wikonia-Cockpit DEV Setup
 
 Dies ist das lokale Entwicklungssetup für Wikonia, basierend auf Laravel, Filament und Docker.
 
@@ -29,6 +29,9 @@ Dies ist das lokale Entwicklungssetup für Wikonia, basierend auf Laravel, Filam
 - **Passwort:** geheim (manuell gesetzt nach Setup)
 
 ## 🗃️ Datenbank
+
+> Achtung die hier eingetragenen Datenbankdaten gelten ausschließlich für die Dev-Umgenung im Docker-Container
+> Für eine Produktivnutzung **unbedingt** das Passowrt anpassen!
 
 - Container: `wikonia-db` (MariaDB 10.5)
 - User: `root`, Passwort: `root`
