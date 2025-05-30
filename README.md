@@ -1,33 +1,47 @@
-# Wikonia Dev Umgebung
+# Wikonia DEV Setup
 
-## Quickstart
+Dies ist das lokale Entwicklungssetup für Wikonia, basierend auf Laravel, Filament und Docker.
 
-1. Öffne ein Terminal im Projektordner:
-    ```bash
-    cd wikonia-dev
-    ```
+## 📦 Systemvoraussetzungen
 
-2. Starte alle Dienste:
-    ```bash
-    docker-compose up -d
-    ```
+- Docker & Docker Compose
+- Keine weiteren lokalen Installationen nötig
 
-3. Öffne im Browser:
-    - Laravel App: [http://localhost:8081](http://localhost:8081)
-    - phpMyAdmin: [http://localhost:8082](http://localhost:8082)
+## 🚀 Starten (empfohlen)
 
-4. Die Dateien befinden sich in `./app` – öffne diesen Ordner in VS Code.
+```bash
+./start.sh
+```
 
-5. Adminbereich (Filament) kannst du später per Composer hinzufügen:
-    ```bash
-    composer require filament/filament
-    ```
+→ Baut Container, führt Migrations + Seeds aus, startet App.
 
-## Hinweise
+## 🌐 Zugriff
 
-- Die Datenbank läuft auf `localhost:3307`, DB: `wikonia`, User: `root`, PW: `root`
-- Alle Daten werden lokal gespeichert (Volume: `db_data`)
+| Dienst         | URL                   |
+|----------------|------------------------|
+| Laravel App    | http://localhost:8081  |
+| Adminpanel     | http://localhost:8081/admin |
+| phpMyAdmin     | http://localhost:8082  |
+
+## 🔐 Login
+
+- **E-Mail:** admin@example.com
+- **Passwort:** geheim (manuell gesetzt nach Setup)
+
+## 🗃️ Datenbank
+
+- Container: `wikonia-db` (MariaDB 10.5)
+- User: `root`, Passwort: `root`
+- Daten persistent via Volume `dbdata`
+
+## 🧼 Reset (optional)
+
+```bash
+docker compose down -v
+```
+
+Löscht alle Daten – nicht einfach so benutzen!
 
 ---
 
-Viel Erfolg – du rockst das 🚀
+_Made by ChatGPT für Notfälle und Nervenzusammenbrüche™_

@@ -2,21 +2,24 @@
 
 services:
   app:
-    image: laravelsail/php84-composer:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: wikonia-app
     ports:
-      - "8081:80"
+      - "8081:8000"
     volumes:
       - ./app:/var/www/html
     working_dir: /var/www/html
     command: >
-      sh -c "php artisan serve --host=0.0.0.0 --port=80"
+      php artisan serve --host=0.0.0.0 --port=8000
     depends_on:
       - db
 
   db:
     image: mariadb:10.5
     container_name: wikonia-db
+    #restart: unless-stopped
     ports:
       - "3307:3306"
     environment:
