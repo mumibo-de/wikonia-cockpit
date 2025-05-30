@@ -97,7 +97,6 @@ public static function form(Form $form): Form
     ->schema([
         Repeater::make('paymentMethods')
             ->label('Zahlungsmethoden')
-            ->relationship() // falls du es relational machst
             ->schema([
                 Section::make('Zahlungsmethode')
                     ->schema([
