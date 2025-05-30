@@ -1,0 +1,39 @@
+#version: '3.8'
+
+services:
+  app:
+    image: laravelsail/php84-composer:latest
+    container_name: wikonia-app
+    ports:
+      - "8081:80"
+    volumes:
+      - ./app:/var/www/html
+    working_dir: /var/www/html
+    command: >
+      sh -c "php artisan serve --host=0.0.0.0 --port=80"
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:10.5
+    container_name: wikonia-db
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: wikonia
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: wikonia-pma
+    ports:
+      - "8082:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+
+volumes:
+  db_data:
