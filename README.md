@@ -7,6 +7,15 @@
 ![Maintained by mumibo-de)](https://img.shields.io/badge/maintainer-mumibo--de-informational)
 ![Repo hygiene level: Obsessive](https://img.shields.io/badge/repo%20hygiene-obsessive-green)
 
+## 📚 Übersicht
+
+- [🎯 Status](#-status)
+- [🚀 Schnellstart](#-schnellstart)
+- [📖 Weitere Dokumentation](#-weitere-dokumentation)
+- [👨‍💻 Mitwirken](#-mitwirken)
+- [⚖️ Lizenz](#-lizenz)
+
+
 
 # 🌐 Wikonia Cockpit
 
