@@ -1,0 +1,30 @@
+name: 🏷️ Auto-Label: PR-Titel analysieren
+
+on:
+  pull_request:
+    types: [opened, edited]
+
+jobs:
+  auto-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🤖 Setze Label basierend auf Titel
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const title = context.payload.pull_request.title.toLowerCase();
+            const labels = [];
+
+            if (title.includes('fix')) labels.push('type: bug');
+            if (title.includes('feature')) labels.push('type: feature');
+            if (title.includes('refactor')) labels.push('type: refactor');
+
+            if (labels.length > 0) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.payload.pull_request.number,
+                labels: labels
+              });
+            }
