@@ -1,0 +1,21 @@
+name: ❌ Block PR ohne Priorität
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check-prio-label:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🔍 Prüfe auf prio:-Label
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const labels = context.payload.pull_request.labels.map(label => label.name);
+            const hasPrio = labels.some(label => label.startsWith('prio:'));
+
+            if (!hasPrio) {
+              core.setFailed("❗ Pull Request benötigt mindestens ein Label mit 'prio: ...'.");
+            }
