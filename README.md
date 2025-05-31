@@ -1,3 +1,5 @@
+[![License: PolyForm NC](https://img.shields.io/badge/license-PolyForm%20NC-orange)](https://polyformproject.org/licenses/noncommercial/1.0.0/)
+
 # 🌐 Wikonia Cockpit
 
 Das zentrale Verwaltungs-Backend für das Wikonia-Wiki-Netzwerk.  
@@ -27,4 +29,17 @@ Mitarbeit ist später über klar definierte Prozesse möglich – siehe `CONTRIB
 
 ---
 
+## ⚖️ Lizenz
+
+Dieses Projekt steht unter der [PolyForm Noncommercial License 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0/).
+
+- Du darfst den Code **ansehen, nutzen und anpassen**, **solange du ihn nicht kommerziell einsetzt**.
+- Änderungen müssen unter derselben Lizenz stehen.
+- Die **kommerzielle Nutzung durch die Mumibo GbR** und deren autorisierte Dienste ist ausdrücklich erlaubt.
+- Für kommerzielle Lizenzierung → kontakt@mumibo.de
+
+---
+
 _Made with ☕ and ChatGPT, supervised by Kevin aka FlipperMind™_
+
+
