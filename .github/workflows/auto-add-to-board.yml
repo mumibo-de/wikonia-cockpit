@@ -1,15 +1,31 @@
-name: 📋 Auto-Board: Add new issues
+name: 📋 Auto-Board: Issue + Label → Spalte
 
 on:
   issues:
-    types: [opened]
+    types: [opened, labeled]
 
 jobs:
   add-to-board:
     runs-on: ubuntu-latest
     steps:
-      - name: ➕ Add issue to project
+      - name: ➕ Add issue to project board
         uses: actions/add-to-project@v0.4.0
         with:
           project-url: https://github.com/orgs/mumibo-de/projects/8
           github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🧠 Move based on label
+        uses: actions/add-to-project@v0.4.0
+        with:
+          project-url: https://github.com/orgs/mumibo-de/projects/8
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          labeled: true
+          label-to-column-map: >
+            {
+              "status: todo": "📥 To Do",
+              "status: planned": "📅 Planned",
+              "status: in progress": "🔧 In Progress",
+              "status: blocked": "🛑 Blocked",
+              "status: done": "✅ Done",
+              "status: canceled": "🚫 Won't Do"
+            }
