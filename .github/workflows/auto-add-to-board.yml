@@ -1,0 +1,15 @@
+name: 📋 Auto-Board: Add new issues
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  add-to-board:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ➕ Add issue to project
+        uses: actions/add-to-project@v0.4.0
+        with:
+          project-url: https://github.com/orgs/mumibo-de/projects/8
+          github-token: ${{ secrets.GITHUB_TOKEN }}
